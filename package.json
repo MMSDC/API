@@ -1,9 +1,9 @@
 {
   "name": "reviews",
   "version": "1.0.0",
-  "description": "API for System Design Capstone",
+  "description": "Quick API for System Design Capstone",
   "scripts": {
-    "start": "nodemon server/reviewsServer.js"
+    "start": "nodemon server/API.js"
   },
   "repository": {
     "type": "git",
