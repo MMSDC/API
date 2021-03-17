@@ -17,7 +17,7 @@ app.get('/:endpoint', function (req, res) {
   //  I think this can be made very DRY by if-clausing the endpoint to set the options.url and options.params
   //  so that only one is needed for all GET requests, or is it more performant to have one handler for each
   //  major service? Presumably the latter
-  
+
   var options = {
     method: 'GET',
     url: reviewsService,
@@ -27,7 +27,14 @@ app.get('/:endpoint', function (req, res) {
   .then((response) => console.log(response.data))
   .catch((err) => console.log(err))
 
-  res.status(200).send(`${destination} and ${product_id}`)
+  // The following successfully redirect, but does not have a way to receive data back as far as I can tell
+  // Theoretically we could change our individual servers to respond directly to the web-server but that
+  // seems like really bad practice.
+  
+  // res.redirect(307, reviewsService);
+  // console.log('data', res);
+
+  // res.status(200).send(`${destination} and ${product_id}`)
 })
 
 app.listen(port)
